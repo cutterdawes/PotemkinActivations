@@ -1,0 +1,21 @@
+Demanding bias, also known as experimenter demand or demand characteristics, refers to a type of bias that occurs when participants in a study or experiment are influenced by the expectations or demands of the researcher, either explicitly or implicitly. This can lead to participants altering their behavior or responses to conform to what they think the researcher wants to see, rather than providing their genuine thoughts or actions.
+
+Demanding bias can arise from various sources, such as:
+
+1. **Researcher's expectations**: When researchers have a preconceived notion about the outcome of the study, they may unintentionally communicate their expectations to the participants, influencing their responses.
+2. **Instructions or cues**: The way instructions are given or the presence of subtle cues, such as body language or tone of voice, can convey the researcher's expectations and influence participant behavior.
+3. **Experimental setting**: The environment or setting in which the study is conducted can also create demand characteristics, such as the presence of cameras or recording devices, which can make participants feel like they are being observed or judged.
+
+Demanding bias can lead to several issues, including:
+
+1. **Artificial results**: Participants may provide responses that are not genuine, but rather what they think the researcher wants to hear.
+2. **Lack of generalizability**: Results may not be representative of real-world situations, as participants are responding to the experimental context rather than their natural behavior.
+3. **Invalid conclusions**: Researchers may draw incorrect conclusions based on the biased data, which can have significant implications for theory development and practical applications.
+
+To mitigate demanding bias, researchers use various techniques, such as:
+
+1. **Double-blind designs**: Researchers and participants are unaware of the experimental conditions to minimize expectations and biases.
+2. **Neutral instructions**: Instructions are given in a neutral and objective manner to avoid influencing participant responses.
+3. **Pilot testing**: Studies are piloted to identify and address potential demand characteristics before the main study is conducted.
+
+By recognizing and addressing demanding bias, researchers can increase the validity and reliability of their findings, ensuring that their results are a genuine reflection of the phenomenon being studied.

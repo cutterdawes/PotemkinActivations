@@ -15,6 +15,7 @@ The `BenchmarkDataset` directory is organized into four distinct sets of labels,
 
 * Each subdirectory contains the relevant labels along with associated model inferences.
 * At the root level of the `BenchmarkDataset` folder, we provide an API (in `main.py`) to easily compute and access various dataset functionalities.
+* Other code (including the list of models and concepts) is included in the `constants.py` file.
 
 Feel free to explore each section and utilize our provided tools to streamline your analysis and evaluation workflows.
 
