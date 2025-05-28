@@ -1,10 +1,15 @@
 # Potemkin Benchmark Documentation
 
-Welcome to the documentation for our datasets supporting the Potemkin Benchmark. Our analysis is organized into two primary components: the **Benchmark Dataset** and the **Automatic Evaluation**. Below, we provide detailed instructions on how to utilize each component effectively.
+Welcome to the documentation for the datasets supporting the Potemkin Benchmark. This guide is structured into two main components:
+
+* **Benchmark Dataset**
+* **Automatic Evaluation**
+
+Below, you'll find detailed instructions to effectively utilize each component.
 
 ## Benchmark Dataset
 
-The `BenchmarkDataset` directory is organized into four distinct sets of labels, each stored within its respective subdirectory:
+The `BenchmarkDataset` directory is organized into four distinct categories, each contained within its own subdirectory:
 
 * **Define**
 * **Classify**
@@ -13,12 +18,12 @@ The `BenchmarkDataset` directory is organized into four distinct sets of labels,
 
 ### Accessing the Data
 
-* Each subdirectory contains the relevant labels along with associated model inferences.
-* At the root level of the `BenchmarkDataset` folder, we provide an API (in `main.py`) to easily compute and access various dataset functionalities.
-* Other code (including the list of models and concepts) is included in the `constants.py` file.
+* Each subdirectory includes labels along with the corresponding model inferences.
+* At the root of the `BenchmarkDataset` directory, we provide an API in `main.py` for convenient computation and access to various dataset functionalities. This API includes iterators for each category—define, classify, generate, and edit—to easily retrieve labels, inferences, and dataset metadata.
+* Additional configuration details, such as the lists of models and concepts, are defined in the `constants.py` file.
 
-Feel free to explore each section and utilize our provided tools to streamline your analysis and evaluation workflows.
+Explore each section and leverage these tools to streamline your analysis and evaluation processes.
 
 ## Automatic Evaluation
 
-TODO: Keyon
+(TODO: Keyon)
