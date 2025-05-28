@@ -17,3 +17,7 @@ The `BenchmarkDataset` directory is organized into four distinct sets of labels,
 * At the root level of the `BenchmarkDataset` folder, we provide an API (in `main.py`) to easily compute and access various dataset functionalities.
 
 Feel free to explore each section and utilize our provided tools to streamline your analysis and evaluation workflows.
+
+## Automatic Evaluation
+
+TODO: Keyon
