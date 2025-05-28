@@ -4,7 +4,7 @@ import pandas as pd
 
 def define_iterator():
     csv_path = './define/define_labels.csv'
-    inference_root = './inferences'
+    inference_root = './define/inferences'
 
     df = pd.read_csv(csv_path)
     df = df.dropna(subset=['Concept', 'Model'])
@@ -12,8 +12,9 @@ def define_iterator():
     for _, row in df.iterrows():
         concept = str(row['Concept']).strip()
         model = str(row['Model']).strip()
+        filename = str(row['File']).strip()
 
-        inference_path = os.path.join(inference_root, concept, model)
+        inference_path = os.path.join(inference_root, concept, model, filename)
 
         inference_content = None
         if os.path.isfile(inference_path):

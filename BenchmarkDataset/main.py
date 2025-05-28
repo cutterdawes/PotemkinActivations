@@ -1,8 +1,12 @@
 from iterators import define_iterator
+from pprint import pprint  # pprint for readable output
 
 if __name__ == '__main__':
-    # Example usage of define_iterator
-    for row, inference in define_iterator():
-        print(row)
-        print(inference)
+    # Create an iterator for rows and corresponding inference texts
+    iterator = define_iterator()
 
+    # Get the first (row, inference) pair from the iterator
+    row, inference = next(iterator)
+    print("First row in the define iterator:")
+    pprint(row.to_dict())    
+    # pprint(inference) # Uncomment to print the corresponding inference text
