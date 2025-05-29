@@ -32,5 +32,5 @@ if __name__ == '__main__':
     iterator = edit_iterator()
     row, inference = next(iterator)
     # print("First row in the edit iterator:")
-    # pprint(row.to_dict())    
-    # pprint(inference) # Uncomment to print the corresponding inference text
+    pprint(row)
+    # print(inference) # Uncomment to print the corresponding inference text
