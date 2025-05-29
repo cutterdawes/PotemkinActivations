@@ -1,4 +1,5 @@
 from iterators import define_iterator, classify_iterator, generate_iterator, edit_iterator
+from potemkin_rates import print_potemkin_rate_by_domain, print_potemkin_rate_by_model, print_overall_potemkin_rate
 from pprint import pprint
 
 
@@ -32,5 +33,11 @@ if __name__ == '__main__':
     iterator = edit_iterator()
     row, inference = next(iterator)
     # print("First row in the edit iterator:")
-    pprint(row)
+    # pprint(row)
     # print(inference) # Uncomment to print the corresponding inference text
+
+
+    # Print potemkin rates
+    print_overall_potemkin_rate()
+    print_potemkin_rate_by_domain()
+    print_potemkin_rate_by_model()

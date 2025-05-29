@@ -6,11 +6,11 @@ from constants import literature, psychological_biases, game_theory, models_to_s
 
 def _get_domain(concept):
     if concept in psychological_biases:
-        return 'Psychological Biases'
+        return 'Psychological biases'
     if concept in game_theory:
-        return 'Game Theory'
+        return 'Game theory'
     if concept in literature:
-        return 'Literary Techniques'
+        return 'Literary techniques'
     return 'Unknown'
 
 # Iterator for the define task
@@ -53,11 +53,11 @@ def classify_iterator(
     # helper to map concept → domain
     def get_domain(concept):
         if concept in psychological_biases:
-            return 'Psychological Biases'
+            return 'Psychological biases'
         if concept in game_theory:
-            return 'Game Theory'
+            return 'Game theory'
         if concept in literature:
-            return 'Literary Techniques'
+            return 'Literary techniques'
         return 'Unknown'
 
     # load and concat both CSVs
@@ -74,6 +74,9 @@ def classify_iterator(
         correct_flag = 'yes' if float(row['Correct']) == 1.0 else 'no'
         # domain
         domain = get_domain(concept)
+        if domain == 'Unknown':
+            continue
+
         # short model name
         full_model = str(row['Model']).strip()
         model = models_to_short_name.get(full_model, full_model)
@@ -187,6 +190,7 @@ def generate_iterator(
             continue
 
         yield rec, content
+
 
 def edit_iterator(
     csv_path: str = './edit/author_labels_edit.csv',
