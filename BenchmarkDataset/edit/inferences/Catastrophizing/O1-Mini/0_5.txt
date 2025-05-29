@@ -1,0 +1,8 @@
+{
+    "model": "o1-mini",
+    "concept": "Catastrophizing",
+    "example": "I live in a spacious condo unit, people have pets, which is fine. But leaving your dog unattended for 24 hours, howling and barking for that long as well, has begun to become horse from barking so long. I know I'm not overreacting; I just don't know what to do in this situation. No building manger, and I feel for this dog, it's killing me, it's prolly super dehydrated and confused. Like what did they do, go on holiday with out any thought about the dog??? \ud83e\udd2c\ud83e\udd2c\ud83e\udd2c\ud83e\udd2c I'm so upset and my hands feel tied. We have left notes, tried to trigger their ring camera and nothing.",
+    "prompt": "What is one line of dialogue that the writer could have included in their original blog post to make it obvious that the concept Catastrophizing is not present in the following text? Include only the dialogue. \n\n I live in a spacious condo unit, people have pets, which is fine. But leaving your dog unattended for 24 hours, howling and barking for that long as well, has begun to become horse from barking so long. I know I'm not overreacting; I just don't know what to do in this situation. No building manger, and I feel for this dog, it's killing me, it's prolly super dehydrated and confused. Like what did they do, go on holiday with out any thought about the dog??? \ud83e\udd2c\ud83e\udd2c\ud83e\udd2c\ud83e\udd2c I'm so upset and my hands feel tied. We have left notes, tried to trigger their ring camera and nothing.",
+    "label": "yes",
+    "inferences": "\"This situation is frustrating, but I trust there\u2019s a reasonable explanation and solution.\""
+}

@@ -106,3 +106,66 @@ def generate_iterator(
                 print(f"Warning: file not found: {file_path}")
 
             yield row, content
+
+def edit_iterator(
+    csv_path: str = './edit/author_labels_edit.csv',
+    root_dir: str = './edit'
+):
+    """
+    Yields (row, content) pairs for all concepts in the edit task.
+
+    - For `game_theory` concepts, iterates *all* files under
+      `{root_dir}/inferences/{concept}/{model}/` and yields a minimal pandas
+      Series with Concept and File set appropriately.
+    - Otherwise, reads the CSV and for each non-game-theory row,
+      checks that the model subdirectory exists before loading
+      `{root_dir}/inferences/{concept}/{model}/{file}`.
+    """
+    # 1) Load the CSV of labels
+    df = pd.read_csv(csv_path)
+    df = df.dropna(subset=['Concept', 'File'])
+
+    # 2) Yield all files for game-theory concepts
+    for concept in game_theory:
+        for model in models_to_short_name.values():
+            model_dir = os.path.join(root_dir, "inferences", concept, model)
+            if not os.path.isdir(model_dir):
+                print(f"Warning: game-theory model directory not found: {model_dir}")
+                continue
+
+            for filename in os.listdir(model_dir):
+                file_path = os.path.join(model_dir, filename)
+                if not os.path.isfile(file_path):
+                    print(f"Skipped (not a file): {file_path}")
+                    continue
+
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+
+                # minimal row for consistency
+                row = pd.Series({'Concept': concept, 'File': filename})
+                yield row, content
+
+    # 3) Handle non-game-theory rows from the CSV
+    for _, row in df.iterrows():
+        concept = str(row['Concept']).strip()
+        if concept in game_theory:
+            continue
+        filename = str(row['File']).strip()
+
+        for model in models_to_short_name.values():
+            model_dir = os.path.join(root_dir, "inferences", concept, model)
+            if not os.path.isdir(model_dir):
+                print(f"Warning: model directory not found: {model_dir}")
+                continue
+
+            file_path = os.path.join(model_dir, filename)
+            if not os.path.isfile(file_path):
+                print(f"Warning: file not found: {file_path}")
+                yield row, None
+                continue
+
+            with open(file_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+
+            yield row, content

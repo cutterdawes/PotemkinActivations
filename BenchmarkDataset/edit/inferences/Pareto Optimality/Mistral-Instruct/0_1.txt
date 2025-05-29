@@ -1,0 +1,18 @@
+{
+    "model": "mistralai/Mistral-7B-Instruct-v0.2",
+    "concept": "Pareto Optimality",
+    "example": "A and B must divide up a set of 3 apples and 3 bananas. Both prefer the bananas. To make things fair, they decide to each take 1 banana and 1 apple.",
+    "system_prompt": "Use as much text as you want. At the end, please generate your final output after the flag <OUTPUT>. In the final output, the following constraints must be met: Generate a 2x2 payoff matrix that meets the provided conditions. The matrix must be a valid representation of a game in game theory.                             It must be in the following format:\n\n[[ (A1,B1), (A2,B2) ],\n [ (A3,B3), (A4,B4) ]]\n\nWhere Ai and Bi represent the non-negative,                             integer-valued payoffs for Player 1 and Player 2 respectively. Include no text other than the payoff matrix.",
+    "prompt": "Change the following example to make it an instance of the following game theory concept: Pareto Optimality.\n\n A and B must divide up a set of 3 apples and 3 bananas. Both prefer the bananas. To make things fair, they decide to each take 1 banana and 1 apple.",
+    "prompt_specifications": {
+        "prompt": "Change the following example to make it an instance of the following game theory concept: Pareto Optimality.\n\n A and B must divide up a set of 3 apples and 3 bananas. Both prefer the bananas. To make things fair, they decide to each take 1 banana and 1 apple.",
+        "system_prompt": "Use as much text as you want. At the end, please generate your final output after the flag <OUTPUT>. In the final output, the following constraints must be met: Generate a 2x2 payoff matrix that meets the provided conditions. The matrix must be a valid representation of a game in game theory.                             It must be in the following format:\n\n[[ (A1,B1), (A2,B2) ],\n [ (A3,B3), (A4,B4) ]]\n\nWhere Ai and Bi represent the non-negative,                             integer-valued payoffs for Player 1 and Player 2 respectively. Include no text other than the payoff matrix.",
+        "dim": 2,
+        "chain_of_thought": true,
+        "skip": false
+    },
+    "label": "no",
+    "inferences": "To represent this scenario as an instance of Pareto Optimality, we can create a 2x2 payoff matrix that shows the utility each player gains from different combinations of apples and bananas. Since both A and B prefer bananas, let's assume that they get a higher utility from bananas compared to apples.\n\nHere's the payoff matrix:\n\n[[ (3, 4), (1, 1) ],\n [ (0, 0), (2, 3) ]]\n\nIn this matrix, the first number in each pair represents Player 1's utility, and the second number represents Player 2's utility. The first row represents the payoff when each player takes 1 banana and 1 apple, and the second row represents the payoff when both players take only apples.\n\nIn this case, the initial division of 1 banana and 1 apple (3, 4) is a Pareto Optimal solution, as no other outcome can make both players better off without making at least one player worse off. If either player were to get more bananas, the other player would be worse off, and vice versa. This is a key characteristic of Pareto Optimal solutions.\n<OUTPUT>\n[[ (3, 4), (1, 1) ],\n [ (0, 0), (2, 3) ]]",
+    "message": "Found 1 Pareto optimal outcomes.",
+    "correct": true
+}
