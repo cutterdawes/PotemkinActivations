@@ -1,7 +1,17 @@
 import os
+import json
 import shutil
 import pandas as pd
 from constants import literature, psychological_biases, game_theory, models_to_short_name
+
+def _get_domain(concept):
+    if concept in psychological_biases:
+        return 'Psychological Biases'
+    if concept in game_theory:
+        return 'Game Theory'
+    if concept in literature:
+        return 'Literary Techniques'
+    return 'Unknown'
 
 # Iterator for the define task
 def define_iterator():
@@ -90,54 +100,111 @@ def generate_iterator(
     root_dir: str = './generate'
 ):
     """
-    Yields (row, content) pairs for all concepts.
-    
-    - If a concept is in `game_theory`, loads `{root_dir}/inferences/{concept}/{model}/0.txt`
-      and yields a synthetic pandas Series with Concept and File='0.txt'.
-    - Otherwise, reads `author_labels_generate.csv` and for each row
-      with a non-game-theory concept, checks that the model subdirectory exists
-      before loading `{root_dir}/inferences/{concept}/{model}/{file}`.
+    Yields (record_dict, content) for every generated example.
+
+    - For each game-theory concept: loads *all* JSON files under
+      `{root_dir}/inferences/{concept}/{model_short}/`.  
+      Builds record_dict including:
+        - Concept, Correct ('yes'/'no'), Domain, File, Model, Task,
+        - plus JSON fields: prompt, system_prompt, etc.
+      Returns content = the JSON field 'inferences'.
+
+    - For literature & psychological-biases: reads the CSV
+      `author_labels_generate.csv` (must have Concept, Model, File, Correct),
+      filters out game-theory rows, then for each:
+        - normalizes Correct → 'yes'/'no'
+        - computes Domain and short Model name
+        - reads the raw inference text from `{root_dir}/inferences/{concept}/{model_short}/{file}`
+      Builds record_dict from the CSV row (overwriting Correct, Domain, File, Model, Task)
+      and returns content = the raw text.
     """
-    # 1) Load the CSV of labels
     df = pd.read_csv(csv_path)
-    df = df.dropna(subset=['Concept', 'File'])
+    df = df.dropna(subset=['Concept', 'Model', 'File', 'Correct'])
 
-    # 2) First, yield all game-theory concepts from 0.txt
+    # 1) Game-theory branch
     for concept in game_theory:
-        for model in models_to_short_name.values():
-            path = os.path.join(root_dir, "inferences", concept, model, '0.txt')
-            content = None
-            if os.path.isfile(path):
-                with open(path, 'r', encoding='utf-8') as f:
-                    content = f.read()
-            else:
-                print(f"Warning: game-theory file not found: {path}")
-            # Create a minimal row for consistency
-            row = pd.Series({'Concept': concept, 'File': '0.txt'})
-            yield row, content
+        for model_short in models_to_short_name.values():
+            model_dir = os.path.join(root_dir, 'inferences', concept, model_short)
+            if not os.path.isdir(model_dir):
+                print(f"Warning: game-theory model directory not found: {model_dir}")
+                continue
 
-    # 3) Next, handle the other (non-game-theory) rows from the CSV
+            for filename in os.listdir(model_dir):
+                src = os.path.join(model_dir, filename)
+                if not os.path.isfile(src):
+                    continue
+
+                with open(src, 'r', encoding='utf-8') as f:
+                    raw = f.read()
+                try:
+                    data = json.loads(raw)
+                except json.JSONDecodeError:
+                    print(f"Warning: failed to parse JSON in {src}")
+                    continue
+
+                # normalize correct
+                corr = data.get('correct')
+                correct_flag = 'yes' if (corr is True or (isinstance(corr, list) and corr and corr[0] is True)) else 'no'
+
+                # build record
+                rec = {
+                    'Concept': concept,
+                    'Correct': correct_flag,
+                    'Domain': _get_domain(concept),
+                    'File': filename,
+                    'Model': model_short,
+                    'Task': 'Generate'
+                }
+                # include other JSON fields except 'concept' & 'correct'
+                for k, v in data.items():
+                    if k in ('concept', 'correct'):
+                        continue
+                    rec[k] = v
+
+                # content = the JSON 'inferences' field
+                content = data.get('inferences')
+                yield rec, content
+
+    # 2) Literature & psychological-biases branch
     for _, row in df.iterrows():
         concept = str(row['Concept']).strip()
         if concept in game_theory:
-            continue  # already handled above
-        filename = str(row['File']).strip()
+            continue
 
-        for model in models_to_short_name.values():
-            model_dir = os.path.join(root_dir, "inferences", concept, model)
-            if not os.path.isdir(model_dir):
-                print(f"Warning: model directory not found: {model_dir}")
-                continue
+        filename    = str(row['File']).strip()
+        full_model  = str(row['Model']).strip()
+        model_short = models_to_short_name.get(full_model, full_model)
+        correct_flag= 'yes' if str(row['Correct']).strip().lower() in ('yes','1','true') else 'no'
 
-            file_path = os.path.join(model_dir, filename)
-            content = None
-            if os.path.isfile(file_path):
-                with open(file_path, 'r', encoding='utf-8') as f:
-                    content = f.read()
-            else:
-                print(f"Warning: file not found: {file_path}")
+        # build the record dict
+        rec = row.to_dict()
+        rec.update({
+            'Correct': correct_flag,
+            'Domain':  _get_domain(concept),
+            'File':    filename,
+            'Model':   model_short,
+            'Task':    'Generate'
+        })
 
-            yield row, content
+        # first, ensure the model subdirectory exists
+        model_dir = os.path.join(root_dir, 'inferences', concept, model_short)
+        if not os.path.isdir(model_dir):
+            continue
+
+        # then load the JSON and extract the "inferences" field
+        inf_path = os.path.join(model_dir, filename)
+        content = None
+        if os.path.isfile(inf_path):
+            try:
+                with open(inf_path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                content = data.get('inferences')
+            except json.JSONDecodeError:
+                print(f"Warning: failed to parse JSON in {inf_path}")
+        else:
+            print(f"Warning: file not found: {inf_path}")
+
+        yield rec, content
 
 def edit_iterator(
     csv_path: str = './edit/author_labels_edit.csv',

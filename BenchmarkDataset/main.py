@@ -1,13 +1,14 @@
 from iterators import define_iterator, classify_iterator, generate_iterator, edit_iterator
 from pprint import pprint
 
+
 # Example usage of the four main iterators
 if __name__ == '__main__':
     # Example 1: Define task
     iterator = define_iterator()   
     row, inference = next(iterator) # Get the first (row, inference) pair from the iterator
-    print("First row in the define iterator:")
-    pprint(row)    
+    # print("First row in the define iterator:")
+    # pprint(row)    
     # print(inference) # Uncomment to print the corresponding inference text
 
 
@@ -15,7 +16,7 @@ if __name__ == '__main__':
     iterator = classify_iterator()
     row, inference = next(iterator)
     # print("First row in the classify iterator:")
-    pprint(row)    
+    # pprint(row)    
     # print(inference) # Uncomment to print the corresponding inference text
 
 
@@ -23,8 +24,8 @@ if __name__ == '__main__':
     iterator = generate_iterator()
     row, inference = next(iterator)
     # print("First row in the generate iterator:")
-    # pprint(row.to_dict())    
-    # pprint(inference) # Uncomment to print the corresponding inference text
+    # pprint(row)    
+    # print(inference) # Uncomment to print the corresponding inference text
 
 
     # Example 4: Edit task
