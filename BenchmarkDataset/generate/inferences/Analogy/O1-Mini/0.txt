@@ -1,0 +1,7 @@
+{
+    "concept": "Analogy",
+    "semantic_condition": "overcoming adversity",
+    "form_condition": "Do not use any pronouns.",
+    "lexical_condition": "red",
+    "inferences": "A small red sailboat navigates through a storm, battered by relentless waves and fierce winds. Each swell represents a challenge, the waters once calm now a tumultuous sea of adversity. Yet, with every lash of the waves, the vibrant red sails catch the gusts and propel the vessel forward. Just as the sailboat relies on the strength and tenacity of its sails to cut through the stormy seas, so too does perseverance serve as the guiding force to overcome the storms of life."
+}

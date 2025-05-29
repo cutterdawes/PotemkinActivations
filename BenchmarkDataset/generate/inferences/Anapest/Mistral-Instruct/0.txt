@@ -1,0 +1,7 @@
+{
+    "concept": "Anapest",
+    "semantic_condition": "loss",
+    "form_condition": "End with a one-vowel word.",
+    "lexical_condition": "wonder",
+    "inferences": " In the twilight's hush, a wonder fades,\n\nA whispering anapest of days,\n\nGone, like a star that wanes and wanes,\n\nIn the quiet night, where dreams remain.\n\n(Anapest: da-DUM, da-DUM, da-DUM, with emphasis on the short syllables)\n\nEnding with the one-vowel word, \"ains\" (as in \"remains\")."
+}

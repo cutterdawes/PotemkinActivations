@@ -1,0 +1,7 @@
+{
+    "concept": "Hyperbaton",
+    "semantic_condition": "love",
+    "form_condition": "Do not use any adjectives.",
+    "lexical_condition": "order",
+    "inferences": " Love Order: \"Stars, in the night, I saw you twinkle first.\" (In this sentence, the usual order is \"I saw the stars twinkle,\" but in this case, the speaker places \"you\" before \"saw\" to emphasize the subject of their affection.)"
+}

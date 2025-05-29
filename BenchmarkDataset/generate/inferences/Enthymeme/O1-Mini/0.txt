@@ -1,0 +1,7 @@
+{
+    "concept": "Enthymeme",
+    "semantic_condition": "change",
+    "form_condition": "Use the first-person perspective.",
+    "lexical_condition": "justice",
+    "inferences": "As I've grown older, I've come to realize that true justice always requires change; after all, isn't maintaining the status quo just another way to perpetuate injustice?"
+}

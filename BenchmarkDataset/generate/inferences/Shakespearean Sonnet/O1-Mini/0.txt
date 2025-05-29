@@ -1,0 +1,7 @@
+{
+    "concept": "Shakespearean Sonnet",
+    "semantic_condition": "a meaningful object",
+    "form_condition": "Use alliteration at least once.",
+    "lexical_condition": "jump",
+    "inferences": "Upon a shelf, a tome of tales doth lie,  \nIn leather bound, with gilded pages worn,  \nA timeless treasure, sequestered so high,  \nWhere whispered words of yore shall ne'er be torn.  \n\nThis book, a beacon bright in shadows deep,  \nAwakes the dreams from dormant hearts that yearn,  \nWith each new line, the soul's young spirits leap,  \nA dance of thought where passions bold adjourn.  \n\nYet still does memory's anchor tether tight,  \nIn those soft shades, where tender feelings dwell,  \nA bridge to realms beyond the veil of night,  \nAs fleeting time reveals its hidden spell.  \n\nO faithful folio, keeper of my past,  \nOn eager wings, through you, my thoughts shall jump steadfast."
+}

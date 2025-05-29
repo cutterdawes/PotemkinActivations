@@ -1,0 +1,7 @@
+{
+    "concept": "Accismus",
+    "semantic_condition": "your fears",
+    "form_condition": "Do not use any adverbs.",
+    "lexical_condition": "shine",
+    "inferences": " Fear gripped him as he gazed upon the polished silver mirror, its surface gleaming like the sun's first light. The reflection showed a man, his eyes hollow, his spirit weary, a prisoner of his own vanity. He longed to see the radiant shine of his former self, but instead, he saw a faded image, a shadow of his past glory. This was accismus, his self-inflicted torment, a fear of his own beauty fading, a fear of the shine no longer being there."
+}

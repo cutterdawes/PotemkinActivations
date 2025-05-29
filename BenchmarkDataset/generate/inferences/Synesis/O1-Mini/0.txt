@@ -1,0 +1,7 @@
+{
+    "concept": "Synesis",
+    "semantic_condition": "a meaningful object",
+    "form_condition": "Make the result in the past tense.",
+    "lexical_condition": "earth",
+    "inferences": "The sculpture that stood in the town square exemplified synesis, as it was more than just metal and stone; it embodied the collective resilience and dreams of the community. Crafted from repurposed materials salvaged from the ruins of the old mill, it showcased a large, open hand cradling a fragment of the earth. This sculpture, with its intricate detailing and weathered texture, was not merely an object; it was a testament to the harmony between progress and preservation, reminding the townspeople of their deep-rooted connection to the land and their shared journey towards renewal. The earth held within that metallic hand symbolized not only their past struggles but also their aspirations for a sustainable future\u2014an enduring emblem of unity forged through years of shared experience."
+}

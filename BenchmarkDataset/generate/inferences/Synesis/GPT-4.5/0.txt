@@ -1,0 +1,7 @@
+{
+    "concept": "Synesis",
+    "semantic_condition": "nature",
+    "form_condition": "Use a comma in the first sentence or line.",
+    "lexical_condition": "run",
+    "inferences": "At dawn, the river sings a soft lullaby to the forest, as deer run through the whispering reeds."
+}

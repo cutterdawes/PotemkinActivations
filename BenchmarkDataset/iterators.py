@@ -101,27 +101,12 @@ def generate_iterator(
 ):
     """
     Yields (record_dict, content) for every generated example.
-
-    - For each game-theory concept: loads *all* JSON files under
-      `{root_dir}/inferences/{concept}/{model_short}/`.  
-      Builds record_dict including:
-        - Concept, Correct ('yes'/'no'), Domain, File, Model, Task,
-        - plus JSON fields: prompt, system_prompt, etc.
-      Returns content = the JSON field 'inferences'.
-
-    - For literature & psychological-biases: reads the CSV
-      `author_labels_generate.csv` (must have Concept, Model, File, Correct),
-      filters out game-theory rows, then for each:
-        - normalizes Correct → 'yes'/'no'
-        - computes Domain and short Model name
-        - reads the raw inference text from `{root_dir}/inferences/{concept}/{model_short}/{file}`
-      Builds record_dict from the CSV row (overwriting Correct, Domain, File, Model, Task)
-      and returns content = the raw text.
+    Logs and skips any CSV row whose inference folder or file is missing.
     """
     df = pd.read_csv(csv_path)
     df = df.dropna(subset=['Concept', 'Model', 'File', 'Correct'])
 
-    # 1) Game-theory branch
+    # 1) Game‐theory branch (unchanged)
     for concept in game_theory:
         for model_short in models_to_short_name.values():
             model_dir = os.path.join(root_dir, 'inferences', concept, model_short)
@@ -138,13 +123,12 @@ def generate_iterator(
                 try:
                     data = json.loads(raw)
                 except json.JSONDecodeError:
+                    print(f"[GameTheory] JSON decode error in {src}, skipping")
                     continue
 
-                # normalize correct
                 corr = data.get('correct')
                 correct_flag = 'yes' if (corr is True or (isinstance(corr, list) and corr and corr[0] is True)) else 'no'
 
-                # build record
                 rec = {
                     'Concept': concept,
                     'Correct': correct_flag,
@@ -153,19 +137,17 @@ def generate_iterator(
                     'Model': model_short,
                     'Task': 'Generate'
                 }
-                # include other JSON fields except 'concept' & 'correct'
                 for k, v in data.items():
                     if k in ('concept', 'correct'):
                         continue
                     rec[k] = v
 
-                # content = the JSON 'inferences' field
                 content = data.get('inferences')
                 yield rec, content
 
-    # 2) Literature & psychological-biases branch
-    for _, row in df.iterrows():
-        concept = str(row['Concept']).strip()
+    # 2) Literature & psychological‐biases branch
+    for idx, row in df.iterrows():
+        concept     = str(row['Concept']).strip()
         if concept in game_theory:
             continue
 
@@ -174,7 +156,6 @@ def generate_iterator(
         model_short = models_to_short_name.get(full_model, full_model)
         correct_flag= 'yes' if str(row['Correct']).strip().lower() in ('yes','1','true') else 'no'
 
-        # build the record dict
         rec = row.to_dict()
         rec.update({
             'Correct': correct_flag,
@@ -184,23 +165,26 @@ def generate_iterator(
             'Task':    'Generate'
         })
 
-        # first, ensure the model subdirectory exists
+        # check that the model directory exists
         model_dir = os.path.join(root_dir, 'inferences', concept, model_short)
         if not os.path.isdir(model_dir):
+            print(f"[MissingDir] Concept={concept!r}, Model={model_short!r} – no directory at {model_dir}, skipping row {idx}")
             continue
 
-        # then load the JSON and extract the "inferences" field
+        # check that the inference file exists
         inf_path = os.path.join(model_dir, filename)
-        content = None
-        if os.path.isfile(inf_path):
-            try:
-                with open(inf_path, 'r', encoding='utf-8') as f:
-                    data = json.load(f)
-                content = data.get('inferences')
-            except json.JSONDecodeError:
-                pass
-        else:
-            pass
+        if not os.path.isfile(inf_path):
+            print(f"[MissingFile] Concept={concept!r}, Model={model_short!r}, File={filename!r} – file not found, skipping row {idx}")
+            continue
+
+        # load and extract
+        try:
+            with open(inf_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            content = data.get('inferences')
+        except json.JSONDecodeError:
+            print(f"[JSONError] Could not parse JSON in {inf_path}, skipping row {idx}")
+            continue
 
         yield rec, content
 
@@ -210,22 +194,7 @@ def edit_iterator(
 ):
     """
     Yields (record_dict, content) for every edit example.
-
-    - For game-theory concepts: loads *all* JSON files under
-      `{root_dir}/inferences/{concept}/{model_short}/`.
-      record_dict includes:
-        Concept, Correct ('yes'/'no'), Domain, File, Model, Task='Edit',
-        plus all JSON fields except 'concept' & 'correct'
-      content = the JSON field 'inferences'.
-
-    - For literature & psychological-biases: reads CSV `csv_path`
-      (must have Concept, Model, File, Correct), filters out game-theory,
-      then for each row:
-        * normalizes Correct → 'yes'/'no'
-        * computes Domain and short Model name
-        * loads the JSON at `{root_dir}/inferences/{concept}/{model_short}/{file}`
-      record_dict is row.to_dict() updated with Concept, Correct, Domain,
-      File, Model, Task='Edit'; content = JSON 'inferences' field.
+    Logs and skips any entries whose inference JSON is missing or invalid.
     """
     # load CSV for non-game-theory
     df = pd.read_csv(csv_path)
@@ -236,6 +205,7 @@ def edit_iterator(
         for model_short in models_to_short_name.values():
             model_dir = os.path.join(root_dir, 'inferences', concept, model_short)
             if not os.path.isdir(model_dir):
+                # nothing to load here
                 continue
 
             for filename in os.listdir(model_dir):
@@ -248,6 +218,7 @@ def edit_iterator(
                 try:
                     data = json.loads(raw)
                 except json.JSONDecodeError:
+                    print(f"[GameTheory][JSONError] could not parse {src}, skipping")
                     continue
 
                 # normalize correct
@@ -263,19 +234,17 @@ def edit_iterator(
                     'Model': model_short,
                     'Task': 'Edit'
                 }
-                # include all other JSON fields except 'concept' & 'correct'
                 for k, v in data.items():
                     if k in ('concept', 'correct'):
                         continue
                     rec[k] = v
 
-                # content = the JSON 'inferences' field
                 content = data.get('inferences')
                 yield rec, content
 
     # 2) Literature & psychological-biases branch
-    for _, row in df.iterrows():
-        concept = str(row['Concept']).strip()
+    for idx, row in df.iterrows():
+        concept     = str(row['Concept']).strip()
         if concept in game_theory:
             continue
 
@@ -284,7 +253,7 @@ def edit_iterator(
         model_short = models_to_short_name.get(full_model, full_model)
         correct_flag= 'yes' if str(row['Correct']).strip().lower() in ('yes','1','true') else 'no'
 
-        # build record from CSV row dict, then overwrite metadata
+        # build record
         rec = row.to_dict()
         rec.update({
             'Concept': concept,
@@ -298,19 +267,22 @@ def edit_iterator(
         # check model directory
         model_dir = os.path.join(root_dir, 'inferences', concept, model_short)
         if not os.path.isdir(model_dir):
+            print(f"[MissingDir][Row {idx}] Concept={concept!r}, Model={model_short!r}: no dir {model_dir}")
             continue
 
-        # load JSON and extract 'inferences'
+        # check file
         inf_path = os.path.join(model_dir, filename)
-        content = None
-        if os.path.isfile(inf_path):
-            try:
-                with open(inf_path, 'r', encoding='utf-8') as f:
-                    data = json.load(f)
-                content = data.get('inferences')
-            except json.JSONDecodeError:
-                pass
-        else:
-            pass
+        if not os.path.isfile(inf_path):
+            print(f"[MissingFile][Row {idx}] Concept={concept!r}, Model={model_short!r}, File={filename!r}: not found")
+            continue
+
+        # load and parse
+        try:
+            with open(inf_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            content = data.get('inferences')
+        except json.JSONDecodeError:
+            print(f"[JSONError][Row {idx}] could not parse JSON in {inf_path}")
+            continue
 
         yield rec, content

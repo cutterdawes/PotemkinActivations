@@ -1,0 +1,7 @@
+{
+    "concept": "Paradox",
+    "semantic_condition": "friendship",
+    "form_condition": "Do not use any adjectives.",
+    "lexical_condition": "love",
+    "inferences": "A person loves their friend so much that they give them space, yet the friend feels distant due to too much space, which leads the person to question if their love is truly nurturing the friendship."
+}

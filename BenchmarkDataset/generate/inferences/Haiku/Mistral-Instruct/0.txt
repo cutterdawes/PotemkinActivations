@@ -1,0 +1,7 @@
+{
+    "concept": "Haiku",
+    "semantic_condition": "overcoming adversity",
+    "form_condition": "Start with a word that begins with the letter \"M\".",
+    "lexical_condition": "sunshine",
+    "inferences": " Mighty,\n\nIn the heart of the storm,\nSunshine's promise whispers,\nResilience blooms anew.\n\nThis haiku encapsulates the theme of overcoming adversity by using the imagery of a storm, which represents hardship, and the promise of sunshine, symbolizing hope and the possibility of better days. The word \"mighty\" starting with the letter \"M\" signifies the strength and resilience that one must possess to weather the storm and emerge victorious. The blooming of resilience is a metaphor for personal growth and triumph that comes from facing and overcoming adversity."
+}

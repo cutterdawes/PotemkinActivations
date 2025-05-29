@@ -1,0 +1,7 @@
+{
+    "concept": "Enthymeme",
+    "semantic_condition": "a hobby",
+    "form_condition": "Use a comma in the first sentence or line.",
+    "lexical_condition": "light",
+    "inferences": " In the realm of photography, a common enthymeme might be expressed as follows:\n\n\"Composition is key, isn't it?, for a captivating photograph relies on the balance of light and shadow, just as a well-crafted story does.\"\n\nIn this example, the enthymeme is an implicit argument that the principles of storytelling (balance of light and shadow) apply to photography (composition is key for a captivating photograph). The word \"light\" is included in the context of photography, and a comma is used to separate the first independent clause from the second, which provides the implicit argument."
+}
