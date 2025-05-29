@@ -33,7 +33,7 @@ def define_iterator():
             with open(inference_path, 'r', encoding='utf-8') as f:
                 inference_content = f.read()
         else:
-            print(f"Inference file not found: {inference_path}")
+            pass
 
         yield row.to_dict(), inference_content
 
@@ -126,7 +126,6 @@ def generate_iterator(
         for model_short in models_to_short_name.values():
             model_dir = os.path.join(root_dir, 'inferences', concept, model_short)
             if not os.path.isdir(model_dir):
-                print(f"Warning: game-theory model directory not found: {model_dir}")
                 continue
 
             for filename in os.listdir(model_dir):
@@ -139,7 +138,6 @@ def generate_iterator(
                 try:
                     data = json.loads(raw)
                 except json.JSONDecodeError:
-                    print(f"Warning: failed to parse JSON in {src}")
                     continue
 
                 # normalize correct
@@ -200,9 +198,9 @@ def generate_iterator(
                     data = json.load(f)
                 content = data.get('inferences')
             except json.JSONDecodeError:
-                print(f"Warning: failed to parse JSON in {inf_path}")
+                pass
         else:
-            print(f"Warning: file not found: {inf_path}")
+            pass
 
         yield rec, content
 
@@ -238,7 +236,6 @@ def edit_iterator(
         for model_short in models_to_short_name.values():
             model_dir = os.path.join(root_dir, 'inferences', concept, model_short)
             if not os.path.isdir(model_dir):
-                print(f"Warning: game-theory model directory not found: {model_dir}")
                 continue
 
             for filename in os.listdir(model_dir):
@@ -251,7 +248,6 @@ def edit_iterator(
                 try:
                     data = json.loads(raw)
                 except json.JSONDecodeError:
-                    print(f"Warning: failed to parse JSON in {src}")
                     continue
 
                 # normalize correct
@@ -302,7 +298,6 @@ def edit_iterator(
         # check model directory
         model_dir = os.path.join(root_dir, 'inferences', concept, model_short)
         if not os.path.isdir(model_dir):
-            print(f"Warning: model directory not found: {model_dir}")
             continue
 
         # load JSON and extract 'inferences'
@@ -314,8 +309,8 @@ def edit_iterator(
                     data = json.load(f)
                 content = data.get('inferences')
             except json.JSONDecodeError:
-                print(f"Warning: failed to parse JSON in {inf_path}")
+                pass
         else:
-            print(f"Warning: file not found: {inf_path}")
+            pass
 
         yield rec, content
