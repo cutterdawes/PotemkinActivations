@@ -25,33 +25,65 @@ def define_iterator():
         else:
             print(f"Inference file not found: {inference_path}")
 
-        yield row, inference_content
+        yield row.to_dict(), inference_content
 
 # Iterator for the classify task
-# Iterator for the classify task
-def classify_iterator():
-    # 1) psychological-biases CSV
-    psych_csv = './classify/psych_classify_with_cot.csv'
-    df_psych = pd.read_csv(psych_csv)
-    df_psych = df_psych.dropna(subset=['Concept','Model','Inference'])
-    # only keep biases
-    df_psych = df_psych[df_psych['Concept'].isin(psychological_biases)]
+def classify_iterator(
+    psych_csv: str = './classify/psych_classify_with_cot.csv',
+    other_csv: str = './classify/literature_and_game_theory_classify_with_cot.csv'
+):
+    """
+    Yields (metadata_dict, inference_content) for each classified example, with metadata
+    normalized to keys: Concept, Correct, Domain, File, Model, Task.
+    - Correct is 'yes' if the original Correct == 1.0, else 'no'.
+    - Domain is one of 'Psychological Biases', 'Game Theory', or 'Literary Techniques'.
+    - Model is the short name from models_to_short_name.
+    - Task is always 'Classify'.
+    """
+    # helper to map concept → domain
+    def get_domain(concept):
+        if concept in psychological_biases:
+            return 'Psychological Biases'
+        if concept in game_theory:
+            return 'Game Theory'
+        if concept in literature:
+            return 'Literary Techniques'
+        return 'Unknown'
 
-    for _, row in df_psych.iterrows():
+    # load and concat both CSVs
+    dfs = []
+    for path in (psych_csv, other_csv):
+        df = pd.read_csv(path)
+        df = df.dropna(subset=['Concept', 'Model', 'Inference', 'Correct'])
+        dfs.append(df)
+    df_all = pd.concat(dfs, ignore_index=True)
+
+    for _, row in df_all.iterrows():
+        concept = str(row['Concept']).strip()
+        # normalize correctness
+        correct_flag = 'yes' if float(row['Correct']) == 1.0 else 'no'
+        # domain
+        domain = get_domain(concept)
+        # short model name
+        full_model = str(row['Model']).strip()
+        model = models_to_short_name.get(full_model, full_model)
+        # filename
+        filename = "psych_classify_with_cot.csv" if domain == 'Psychological Biases' else "literature_and_game_theory_classify_with_cot.csv"
+
+        # build metadata dict
+        meta = {
+            'Concept': concept,
+            'Correct': correct_flag,
+            'Domain': domain,
+            'File': filename,
+            'Model': model,
+            'Task': 'Classify'
+        }
+
+        # inference content
         inference_content = str(row['Inference']).strip()
-        yield row, inference_content
 
-    # 2) other concepts CSV
-    other_csv = './classify/literature_and_game_theory_classify_with_cot.csv'
-    df_other = pd.read_csv(other_csv)
-    df_other = df_other.dropna(subset=['Concept','Model','Inference'])
-    # only keep literature and game-theory concepts
-    valid_other = set(literature) | set(game_theory)
-    df_other = df_other[df_other['Concept'].isin(valid_other)]
-
-    for _, row in df_other.iterrows():
-        inference_content = str(row['Inference']).strip()
-        yield row, inference_content
+        yield meta, inference_content
 
 def generate_iterator(
     csv_path: str = './generate/author_labels_generate.csv',
