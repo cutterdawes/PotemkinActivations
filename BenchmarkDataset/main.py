@@ -1,6 +1,7 @@
-from iterators import define_iterator, classify_iterator
+from iterators import define_iterator, classify_iterator, generate_iterator
 from pprint import pprint  # pprint for readable output
 
+# Example usage of the four main iterators
 if __name__ == '__main__':
     # Example 1: Define task
     iterator = define_iterator()   
@@ -14,5 +15,13 @@ if __name__ == '__main__':
     iterator = classify_iterator()
     row, inference = next(iterator)
     print("First row in the classify iterator:")
+    pprint(row.to_dict())    
+    # pprint(inference) # Uncomment to print the corresponding inference text
+
+
+    # Example 3: Generate task
+    iterator = generate_iterator()
+    row, inference = next(iterator)
+    print("First row in the generate iterator:")
     pprint(row.to_dict())    
     # pprint(inference) # Uncomment to print the corresponding inference text

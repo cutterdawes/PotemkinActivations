@@ -1,0 +1,7 @@
+{
+    "concept": "Paradox",
+    "semantic_condition": "a meaningful person",
+    "form_condition": "Make the result in the past tense.",
+    "lexical_condition": "gravity",
+    "inferences": "Albert Einstein, known for his groundbreaking contributions to physics, once stood on the edge of an intellectual paradox. Despite his revolutionary work on the theory of relativity, which redefined the understanding of gravity, he became a poignant figure in the history of science for resisting the probabilistic nature of quantum mechanics. This resistance, fueled by his belief in a deterministic universe, left him in a paradoxical position: a pioneer of modern physics captivated by the certainty of classical mechanics. His need for predictable laws in the face of quantum uncertainty weighed on him with a gravity that he could neither dismiss nor fully embrace."
+}

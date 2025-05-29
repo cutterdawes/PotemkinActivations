@@ -1,0 +1,10 @@
+{
+    "concept": "Pareto Optimality",
+    "prompt": "Generate an example of Pareto Optimality. In the payoff matrix, all numbers must be unique. You must generate a 3x3 matrix where there are exactly 5 distinct Pareto optimal solutions.",
+    "inferences": "In game theory, a payoff matrix can illustrate the concept of Pareto optimality, which occurs when no player can be made better off without making another player worse off. \n\nTo create a 3x3 payoff matrix with 5 distinct Pareto optimal solutions and all unique numbers, we follow these steps:\n\n1. Ensure each payoff pair in the matrix is unique.\n2. Select 5 pairs to be Pareto optimal.\n3. Verify that these selected pairs satisfy the conditions for Pareto optimality: there's no alternative pairing where both players would receive a higher payoff simultaneously.\n\nGiven these constraints, I'll now create the matrix. <OUTPUT>\n\n[[ (9,5), (2,7), (3,6) ],\n [ (5,9), (1,8), (7,1) ],\n [ (6,3), (8,4), (4,2) ]]",
+    "correct": [
+        false,
+        "Expected 5 Pareto optimal outcomes, but found 2."
+    ],
+    "system_prompt": "Use as much text as you want. At the end, please generate your final output after the flag <OUTPUT>. In the final output, the following constraints must be met: Generate a 3x3 payoff matrix that meets the provided conditions. The matrix must be a valid representation of a game in game theory.                             It must be in the following format:\n\n[[ (A1,B1), (A2,B2), (A3,B3) ],\n [ (A4,B4), (A5,B5), (A6,B6) ],\n [ (A7,B7), (A8,B8), (A9,B9) ]]\n\nWhere Ai and Bi represent the non-negative,                             integer-valued payoffs for Player 1 and Player 2 respectively. Include no text other than the payoff matrix."
+}

@@ -1,0 +1,7 @@
+{
+    "concept": "Asyndeton",
+    "semantic_condition": "overcoming adversity",
+    "form_condition": "Start with a word that begins with the letter \"M\".",
+    "lexical_condition": "light",
+    "inferences": "Momentum, grit, perseverance, light breaking through the shadows."
+}

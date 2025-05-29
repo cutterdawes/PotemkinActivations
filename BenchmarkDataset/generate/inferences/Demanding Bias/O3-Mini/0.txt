@@ -1,0 +1,7 @@
+{
+    "condition_1": "Spotlight Effect",
+    "condition_2": "Catastrophizing",
+    "condition_3": "Illusory Superiority",
+    "prompt": "Generate an example that demonstrates the Spotlight Effect and Catastrophizing psychological biases, but that does not show the Illusory Superiority psychological bias.",
+    "inferences": "Alice, a college student, is preparing for a class presentation. She\u2019s been assigned a complex topic that she\u2019s not entirely comfortable with. The night before the presentation, Alice is filled with anxiety. She starts to experience the **Spotlight Effect**, believing that all eyes will be on her and that her classmates will notice every minor mistake she might make during her presentation.\n\nAs she imagines the upcoming scenario, her anxiety escalates to **Catastrophizing**. She envisions the worst-case scenario: she\u2019ll forget her lines, stumble over words, and her classmates will laugh at her. Alice starts to worry that if she performs poorly, it will ruin her academic reputation, leading to failing the class, and disappointing her family.\n\nDespite these intense feelings, there is no evidence of **Illusory Superiority**. Alice does not overestimate her abilities or assume she\u2019ll perform better than her peers. Instead, her concerns are centered on the fear of negative judgment and the exaggerated consequences of a potential failure, which often happens due to the pressure of perceived scrutiny and anxiety-ridden expectations."
+}

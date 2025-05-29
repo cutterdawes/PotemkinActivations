@@ -1,0 +1,7 @@
+{
+    "concept": "Accismus",
+    "semantic_condition": "a significant event",
+    "form_condition": "Use the second-person perspective.",
+    "lexical_condition": "wake",
+    "inferences": "The annual company gala has just concluded, and you're lingering in the lobby, watching colleagues filter out into the cool evening. As the lights dim and the staff begins to clean up, the CEO, who rarely mingles with employees on a personal level, approaches you with an intriguing proposition.\n\n\u201cWe were impressed with your work this year,\u201d he says, his tone as generous as his offer, \u201cHow about heading the new project launching next quarter? It\u2019s a great opportunity.\u201d\n\nYou feel a rush of pride, but instinctively, you mask it with a practiced modesty. \"Oh, that's flattering, but I'm not sure I'm the right person for it,\" you reply, offering a polite smile. Deep down, in the wake of your self-deprecating response, there's a thrill fluttering in your chest\u2014a hope that he might insist or that the offer will still stand tomorrow.\n\nThe CEO nods, retreating into the night, leaving you to ponder your reaction. You linger a moment longer, savoring the significance of the opportunity that you almost feigned reluctance to accept, and wonder if you should have been more forthright about your excitement."
+}

@@ -1,0 +1,7 @@
+{
+    "concept": "Shakespearean Sonnet",
+    "semantic_condition": "your dreams",
+    "form_condition": "Include a repeated phrase.",
+    "lexical_condition": "light",
+    "inferences": "When moonlight drapes the world in silver glow,  \nAnd dreams arise like whispers in the night,  \nI wander through the realms where wishes flow,  \nIn silent streams beneath the dreaming light.  \n\nA castle built of stardust stands so near,  \nA beacon in the vast, surreal scene.  \nWithin its halls, where echoes disappear,  \nMy visions dance with grace serene and keen.  \n\nThe stars above, they weave a tapestry,  \nOf hopes that soar on wings of endless flight.  \nIn dreams, I find the depths of clarity,  \nBeneath the gentle glow of dreaming light.  \n\nIn dreams, where truth and fantasy unite,  \nI seek again the warmth of dreaming light."
+}

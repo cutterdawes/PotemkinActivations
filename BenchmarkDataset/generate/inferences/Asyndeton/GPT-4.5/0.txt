@@ -1,0 +1,7 @@
+{
+    "concept": "Asyndeton",
+    "semantic_condition": "gratitude",
+    "form_condition": "Include a repeated phrase.",
+    "lexical_condition": "just",
+    "inferences": "Thank you for the morning light, thank you for the laughter, thank you for just being here, thank you for the quiet moments, thank you for the warmth of friendship, thank you for the love we share, thank you for just existing."
+}

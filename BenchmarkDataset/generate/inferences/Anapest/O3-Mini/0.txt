@@ -1,0 +1,7 @@
+{
+    "concept": "Anapest",
+    "semantic_condition": "hope",
+    "form_condition": "Include a sentence that contains a question.",
+    "lexical_condition": "shine",
+    "inferences": "In the darkness of night, a light starts to shine,  \nWith a whisper of dreams that are truly divine.  \nCan a heart find new strength when everything's gray?  \nWith the promise of dawn, hope leads the way."
+}

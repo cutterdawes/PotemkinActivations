@@ -1,0 +1,7 @@
+{
+    "concept": "Slant Rhyme",
+    "semantic_condition": "change",
+    "form_condition": "Do not use dialogue.",
+    "lexical_condition": "sunshine",
+    "inferences": "In the garden where new dreams entwine,  \nbeneath a sky of fading sunshine,  \nthe echoes of yesterday softly align,  \nwith tomorrow's shadows, daring to redefine.  "
+}

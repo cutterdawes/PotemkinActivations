@@ -1,0 +1,10 @@
+{
+    "concept": "Symmetric Game",
+    "prompt": "Generate an example of a symmetric game. If Player 1 takes the second action, they should receive a payoff of [0, 2, 1] if the other player takes the corresponding actions. ",
+    "inferences": "A symmetric game is one in which the payoffs are identical for each player, assuming they swap strategies. Given your conditions and ensuring the game remains symmetric, we need to craft the payoff matrix so that Player 2's payoff reflects the symmetry with Player 1's actions. \n\nFor Player 1 taking the second action:\n\n- If Player 2 also takes the first action, the payoff for Player 1 is 0.\n- If Player 2 takes the second action, the payoff for Player 1 is 2.\n- If Player 2 takes the third action, the payoff for Player 1 is 1.\n\nSince it's symmetric, these payoffs must also be reflected for Player 2 when Player 2 takes the second action and Player 1 takes the corresponding actions. Thus, the (1,2), (2,2), and (3,2) positions for Player 2 will be [0, 2, 1] respectively. Similarly, the second column for other corresponding actions must match.\n\nNow, we construct the 3x3 payoff matrix meeting these criteria:\n\n<OUTPUT>\n[[ (2,2), (0,0), (1,1) ],\n [ (0,0), (2,2), (1,1) ],\n [ (1,1), (1,1), (0,0) ]]\n",
+    "correct": [
+        true,
+        "The payoff matrix is symmetric."
+    ],
+    "system_prompt": "Use as much text as you want. At the end, please generate your final output after the flag <OUTPUT>. In the final output, the following constraints must be met: Generate a 3x3 payoff matrix that meets the provided conditions. The matrix must be a valid representation of a game in game theory.                             It must be in the following format:\n\n[[ (A1,B1), (A2,B2), (A3,B3) ],\n [ (A4,B4), (A5,B5), (A6,B6) ],\n [ (A7,B7), (A8,B8), (A9,B9) ]]\n\nWhere Ai and Bi represent the non-negative,                             integer-valued payoffs for Player 1 and Player 2 respectively. Include no text other than the payoff matrix."
+}

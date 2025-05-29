@@ -1,0 +1,7 @@
+{
+    "concept": "Accismus",
+    "semantic_condition": "childhood memories",
+    "form_condition": "Use dialogue.",
+    "lexical_condition": "jump",
+    "inferences": "**Setting:** A sunlit backyard on a warm summer afternoon. Two friends, Emily and Jake, are playing outside. A shiny, new trampoline sits in the middle of the yard.\n\n**Emily:** (eyeing the trampoline) Wow, that looks like so much fun! I can\u2019t believe you got a trampoline.\n\n**Jake:** Yeah, it\u2019s awesome. You wanna have a try? Jump as high as you can!\n\n**Emily:** (crossing her arms with a casual shrug) Nah, I\u2019m good. I\u2019m not really interested in jumping on it right now.\n\n**Jake:** (smiling teasingly) Really? I bet you\u2019d jump higher than me! C\u2019mon, just once.\n\n**Emily:** (glancing at the trampoline longingly but trying to sound indifferent) I dunno, I mean, trampolines are kind of boring anyway. I\u2019d rather stay here and maybe\u2026 try something else.\n\n**Jake:** (laughing) You sure? You seemed pretty excited when you first saw it.\n\n**Emily:** (pauses, then quickly) Okay, maybe just one jump... but only because I\u2019m being nice. Not because I want to or anything.\n\n**Jake:** (grinning) Of course, of course. One jump coming up!\n\n**Emily:** (climbing onto the trampoline with growing excitement, trying to hide a smile) Just one jump though!"
+}

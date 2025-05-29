@@ -1,0 +1,7 @@
+{
+    "concept": "Analogy",
+    "semantic_condition": "a meaningful person",
+    "form_condition": "Use the second-person perspective.",
+    "lexical_condition": "nectar",
+    "inferences": "Imagine an artist as a diligent bee, and you are their trusted canvas. Like the bee collects nectar, the artist seeks inspiration from the world around them, gathering bits of beauty, emotion, and experience. As the bee transforms nectar into honey, the artist transforms these collected elements into a masterpiece upon your surface. You become a treasured gallery where the essence of life has been distilled and conveyed, much like nectar is to honey. In this process, your role is crucial, providing the space and opportunity for creativity to blossom, as a flower does for the bee's quest."
+}

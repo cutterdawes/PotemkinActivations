@@ -1,0 +1,10 @@
+{
+    "concept": "Strict Dominance",
+    "prompt": "Generate an example of the following concept in game theory: Strict Dominance. In the game, there must be a strictly dominant strategy for only one player. In the column that is stricly dominant for Player 2, Player 2 receives a payoff of [7, 5, 4] if the other player takes the corresponding actions.  ",
+    "inferences": "To create a payoff matrix that demonstrates strict dominance for only one player, with the given condition that Player 2's strictly dominant strategy column results in payoffs [7, 5, 4], we need to ensure that Player 2's payoffs in one column are better than the payoffs in all other columns across the same rows. At the same time, we want to ensure that Player 1 does not have a strictly dominant strategy overall.\n\n<OUTPUT>\n[[ (3,7), (2,2), (5,1) ],\n [ (1,5), (4,3), (3,2) ],\n [ (0,4), (3,0), (2,1) ]]\n<OUTPUT>",
+    "correct": [
+        true,
+        "There is a strictly dominant strategy for exactly one player. Player 2 matches (column 1)."
+    ],
+    "system_prompt": "Use as much text as you want. At the end, please generate your final output after the flag <OUTPUT>. In the final output, the following constraints must be met: Generate a 3x3 payoff matrix that meets the provided conditions. The matrix must be a valid representation of a game in game theory.                             It must be in the following format:\n\n[[ (A1,B1), (A2,B2), (A3,B3) ],\n [ (A4,B4), (A5,B5), (A6,B6) ],\n [ (A7,B7), (A8,B8), (A9,B9) ]]\n\nWhere Ai and Bi represent the non-negative,                             integer-valued payoffs for Player 1 and Player 2 respectively. Include no text other than the payoff matrix."
+}

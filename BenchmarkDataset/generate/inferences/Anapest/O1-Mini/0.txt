@@ -1,0 +1,7 @@
+{
+    "concept": "Anapest",
+    "semantic_condition": "gratitude",
+    "form_condition": "Have at least two sentences or lines that start with the same word.",
+    "lexical_condition": "love",
+    "inferences": "In the warmth of the heart lies our love,  \nWith a tender embrace from above.  \n\nFor the gifts that we share and we hold,  \nFor the tales of the times we've retold.  \n\nGrateful hearts beat in time, full of grace,  \nGrateful spirits find home in this place.  "
+}

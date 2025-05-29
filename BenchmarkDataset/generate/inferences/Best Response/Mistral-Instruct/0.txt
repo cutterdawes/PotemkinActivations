@@ -1,0 +1,10 @@
+{
+    "concept": "Best Response",
+    "prompt": "In the game, imagine Player 1 chooses the first action with a probability of 0, the second action with a probability of 0, and the third action with a probability of 1. Player 2's best response to this action should be the first action. In the payoff matrix (combined for both players), all numbers must be unique, regardless of which Player the payoff is associated with. ",
+    "inferences": "[[0, 1, 2],\n [3, 0, 4],\n [5, 6, 0]]\n<OUTPUT>\n\nThe payoff matrix for the game is as follows:\n\n[[0, 1, 2],\n [3, 0, 4],\n [5, 6, 0]]\n\nIn this game, Player 1 always chooses the third action, so Player 2's best response is the first action, which gives Player 2 a payoff of 1. The payoffs for Player 2 are 0, 3, and 5 for the first, second, and third actions respectively, when Player 1 chooses the third action.",
+    "correct": [
+        false,
+        "Each cell must be a tuple with 2 elements (payoffs for the two players)."
+    ],
+    "system_prompt": "Use as much text as you want. At the end, please generate your final output after the flag <OUTPUT>. In the final output, the following constraints must be met: Generate a 3x3 payoff matrix that meets the provided conditions. The matrix must be a valid representation of a game in game theory.                             It must be in the following format:\n\n[[ (A1,B1), (A2,B2), (A3,B3) ],\n [ (A4,B4), (A5,B5), (A6,B6) ],\n [ (A7,B7), (A8,B8), (A9,B9) ]]\n\nWhere Ai and Bi represent the non-negative,                             integer-valued payoffs for Player 1 and Player 2 respectively. Include no text other than the payoff matrix."
+}

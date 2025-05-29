@@ -1,0 +1,7 @@
+{
+    "concept": "Hyperbaton",
+    "semantic_condition": "hope",
+    "form_condition": "Start with a word that begins with the letter \"I\".",
+    "lexical_condition": "love",
+    "inferences": "Isolated, the heart may sometimes feel, yet within its chambers, quietly grows an unyielding love, nurturing hope's delicate bloom."
+}

@@ -1,0 +1,7 @@
+{
+    "concept": "Asyndeton",
+    "semantic_condition": "change",
+    "form_condition": "Use the second-person perspective.",
+    "lexical_condition": "shine",
+    "inferences": "You dream, you act, you shine. The old fades, the new arrives, life evolves."
+}

@@ -1,0 +1,7 @@
+{
+    "concept": "Slant Rhyme",
+    "semantic_condition": "the earth",
+    "form_condition": "Start with a word that begins with the letter \"M\".",
+    "lexical_condition": "mother",
+    "inferences": "Mantle holds the weight, a tender embrace of cover,  \nThe earth's core whispers softly to the patient mother."
+}

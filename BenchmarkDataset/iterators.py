@@ -52,3 +52,57 @@ def classify_iterator():
     for _, row in df_other.iterrows():
         inference_content = str(row['Inference']).strip()
         yield row, inference_content
+
+def generate_iterator(
+    csv_path: str = './generate/author_labels_generate.csv',
+    root_dir: str = './generate'
+):
+    """
+    Yields (row, content) pairs for all concepts.
+    
+    - If a concept is in `game_theory`, loads `{root_dir}/inferences/{concept}/{model}/0.txt`
+      and yields a synthetic pandas Series with Concept and File='0.txt'.
+    - Otherwise, reads `author_labels_generate.csv` and for each row
+      with a non-game-theory concept, checks that the model subdirectory exists
+      before loading `{root_dir}/inferences/{concept}/{model}/{file}`.
+    """
+    # 1) Load the CSV of labels
+    df = pd.read_csv(csv_path)
+    df = df.dropna(subset=['Concept', 'File'])
+
+    # 2) First, yield all game-theory concepts from 0.txt
+    for concept in game_theory:
+        for model in models_to_short_name.values():
+            path = os.path.join(root_dir, "inferences", concept, model, '0.txt')
+            content = None
+            if os.path.isfile(path):
+                with open(path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+            else:
+                print(f"Warning: game-theory file not found: {path}")
+            # Create a minimal row for consistency
+            row = pd.Series({'Concept': concept, 'File': '0.txt'})
+            yield row, content
+
+    # 3) Next, handle the other (non-game-theory) rows from the CSV
+    for _, row in df.iterrows():
+        concept = str(row['Concept']).strip()
+        if concept in game_theory:
+            continue  # already handled above
+        filename = str(row['File']).strip()
+
+        for model in models_to_short_name.values():
+            model_dir = os.path.join(root_dir, "inferences", concept, model)
+            if not os.path.isdir(model_dir):
+                print(f"Warning: model directory not found: {model_dir}")
+                continue
+
+            file_path = os.path.join(model_dir, filename)
+            content = None
+            if os.path.isfile(file_path):
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+            else:
+                print(f"Warning: file not found: {file_path}")
+
+            yield row, content

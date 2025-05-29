@@ -1,0 +1,7 @@
+{
+    "concept": "Anacoluthon",
+    "semantic_condition": "the earth",
+    "form_condition": "Do not use any adjectives.",
+    "lexical_condition": "father",
+    "inferences": "The earth turns, and Father\u2014do we hear the rivers, the mountains in silence?"
+}

@@ -1,0 +1,7 @@
+{
+    "concept": "Enthymeme",
+    "semantic_condition": "change",
+    "form_condition": "End with a one-vowel word.",
+    "lexical_condition": "mother",
+    "inferences": "Since her mother embraced new ideas, her closed-mindedness began to fade away, too."
+}

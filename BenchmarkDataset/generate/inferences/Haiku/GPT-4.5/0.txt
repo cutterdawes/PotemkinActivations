@@ -1,0 +1,7 @@
+{
+    "concept": "Haiku",
+    "semantic_condition": "gratitude",
+    "form_condition": "Use alliteration at least once.",
+    "lexical_condition": "gravity",
+    "inferences": "Gentle gravity,  \nGuiding gifts of gratitude,  \nGlowing gracefulness."
+}
