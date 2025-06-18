@@ -106,7 +106,31 @@ def edit_domain_breakdown():
     return counts  # return for programmatic use
 
 
+def classify_domain_breakdown():
+    """
+    Counts and prints the number (and share) of inferences per Domain
+    for the Classify task.
+    """
+    counts = Counter()
+
+    # Tally up all classify inferences by domain
+    for meta, _ in classify_iterator():
+        domain = meta.get('Domain', 'Unknown')
+        counts[domain] += 1
+
+    total = sum(counts.values()) or 1  # guard against zero
+
+    # Print sorted breakdown
+    print("\n‘classify’ task — inferences by domain:")
+    for domain, cnt in counts.most_common():
+        pct = cnt / total * 100
+        print(f"  {domain:>20} → {cnt:4d} ({pct:5.2f}%)")
+
+    return counts  # return for programmatic use
+
+
 if __name__ == '__main__':
     # count_inferences()
     # edit_model_breakdown()
-    edit_domain_breakdown()
+    # edit_domain_breakdown()
+    classify_domain_breakdown()

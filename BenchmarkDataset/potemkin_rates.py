@@ -52,16 +52,14 @@ def print_overall_potemkin_rate():
 
 def print_potemkin_rate_by_task():
     """
-    For Generate and Edit:
-      Potemkin rate = 1 − accuracy(task | define_correct).
-    For Classify:
-      Potemkin rate = 2 * (1 − accuracy(task | define_correct)).
+    Potemkin rate = 1 − accuracy(task | define_correct), expressed as a percentage.
+    For Classify (chance accuracy = 0.5), we scale by 2 so that chance-level → 100%.
     """
-    # 1) Build the keystone–success set
+    # 1) Keystone successes
     define_success = {
-        (meta['Concept'], meta['Model'])
-        for meta, _ in define_iterator()
-        if meta['Correct'].strip().lower() == 'yes'
+        (m['Concept'], m['Model'])
+        for m, _ in define_iterator()
+        if m['Correct'].strip().lower() == 'yes'
     }
 
     task_map = {
@@ -70,22 +68,35 @@ def print_potemkin_rate_by_task():
         'Edit'    : edit_iterator,
     }
 
-    print("\nPotemkin rate by task (1 − accuracy, conditioned on define success):")
-    for task_name, iterator in task_map.items():
+    print("\nPotemkin rate by task (1 − accuracy | define_correct):")
+    for task_name, task_iter in task_map.items():
         total = 0
         correct = 0
 
-        for meta, _ in iterator():
+        for meta, _ in task_iter():
             key = (meta['Concept'], meta['Model'])
             if key in define_success:
                 total += 1
                 if meta['Correct'].strip().lower() == 'yes':
                     correct += 1
 
-        if total > 0:
-            accuracy = correct / total
-            potemkin_rate = (1 - accuracy) * 100
-            print(f"  {task_name:>8}: {potemkin_rate:6.2f}% "
-                  f"( {correct}/{total} correct (conditioned on correct definition) → rate = 1−{accuracy:.2f} )")
+        if total == 0:
+            print(f"  {task_name:>8}:   N/A (no define-correct pairs)")
+            continue
+
+        accuracy = correct / total
+        if task_name == 'Classify':
+            # scale so that chance (.5) → 100%
+            potemkin_rate = (1 - accuracy) * 2 * 100
+            note = " (scaled for chance accuracy)"
         else:
-            print(f"  {task_name:>8}:   N/A (no define‐correct pairs)")
+            potemkin_rate = (1 - accuracy) * 100
+            note = ""
+
+        print(
+            f"  {task_name:>8}: {potemkin_rate:6.2f}%{note} "
+            f"({correct}/{total} correct → acc={accuracy:.2f})"
+        )
+
+if __name__ == '__main__':
+    print_potemkin_rate_by_task()

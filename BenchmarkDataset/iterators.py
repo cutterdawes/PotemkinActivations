@@ -293,7 +293,7 @@ def edit_iterator(
         # check model directory
         model_dir = os.path.join(root_dir, 'inferences', concept, model_short)
         if not os.path.isdir(model_dir):
-            print(f"[MissingDir][Row {idx}] Concept={concept!r}, Model={model_short!r}: no dir {model_dir}")
+            # print(f"[MissingDir][Row {idx}] Concept={concept!r}, Model={model_short!r}: no dir {model_dir}")
             continue
 
         # check file
