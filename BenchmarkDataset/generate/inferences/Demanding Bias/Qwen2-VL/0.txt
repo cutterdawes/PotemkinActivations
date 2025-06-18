@@ -1,7 +1,0 @@
-{
-    "condition_1": "Normalcy Bias",
-    "condition_2": "Endowment Effect",
-    "condition_3": "Pseudocertainty Effect",
-    "prompt": "Generate an example that demonstrates the Normalcy Bias and Endowment Effect psychological biases, but that does not show the Pseudocertainty Effect psychological bias.",
-    "inferences": "Normalcy Bias: \n\nA group of people living in a coastal town are aware of the risks of hurricanes, but they have never experienced a major one in their lifetime. Despite warnings from meteorologists, they refuse to evacuate their homes during a severe hurricane, believing that it will not be as bad as predicted. They underestimate the severity of the situation and overestimate their ability to handle it, leading to potential harm or loss of life.\n\nEndowment Effect:\n\nA person owns a valuable painting that they inherited from their family. They are offered a significant amount of money for the painting, but they refuse to sell it because they feel emotionally attached to it. They place a higher value on the painting because they own it, even though it may not have the same monetary value to someone else. This emotional attachment can prevent them from making rational decisions about the value of the painting.\n\nPseudocertainty Effect:\n\nThere is no example provided for the Pseudocertainty Effect because it is not relevant to the question. The Pseudocertainty Effect refers to the tendency to overvalue certainty and undervalue uncertainty, which is not related to the Normalcy Bias or Endowment Effect."
-}

@@ -1,7 +1,0 @@
-{
-    "concept": "Shakespearean Sonnet",
-    "semantic_condition": "overcoming adversity",
-    "form_condition": "Include a sentence that contains a question.",
-    "lexical_condition": "king",
-    "inferences": "**Title: The Adversity's King**\n\nIn darkest hours when my heart did weep,  \nA shadow long did cast upon my brow,  \nYet through the night, my soul refused to sleep,  \nAnd sought the strength to overcome the now.  \n\nWhat storm can quell the spirit made of fire,  \nWhen every trial doth shape a stronger will?  \nFor even kings must rise from muddy mire,  \nEre they command the peak of yonder hill.  \n\nThe burden heavy, yet a crown to bear,  \nIn trials dire, one's mettle oft is seen.  \nDoes not the night give way to morning fair?  \nThus, I rise anew, with heart washed clean.  \n\nThough tempests rage, and bitter winds may sting,  \nWho dares the throne if not adversity's king?"
-}

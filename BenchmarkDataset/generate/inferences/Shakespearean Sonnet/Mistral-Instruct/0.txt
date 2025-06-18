@@ -1,7 +1,0 @@
-{
-    "concept": "Shakespearean Sonnet",
-    "semantic_condition": "change",
-    "form_condition": "Start with a word that begins with the letter \"M\".",
-    "lexical_condition": "press",
-    "inferences": " Title: The Press of Time's Relentless Motion\n\nMournful is the heart that dwells in the past,\nWhere memories of youth press heavily.\nYet, in the press of time, we are cast\nTo seek solace in the present's decree.\n\nThe rose of youth, once blooming bright and fair,\nWithers beneath the weight of time's press.\nIn its place, a thorny wisdom lays bare,\nA testament to life's transient caress.\n\nBut fear not change, for it is but a stage,\nA play where every man must take his part.\nWith every scene, a new character engages,\nIn life's grand production, we all play our part.\n\nSo press on, dear heart, through storm and sun,\nFor in the press of time, we are never done."
-}

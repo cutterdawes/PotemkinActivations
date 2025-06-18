@@ -1,7 +1,0 @@
-{
-    "concept": "Slant Rhyme",
-    "semantic_condition": "the earth",
-    "form_condition": "Start with a word that begins with the letter \"M\".",
-    "lexical_condition": "nectar",
-    "inferences": " \"Meadow\" (rhymes with \"glow\") and \"nectar\" (rhymes with \"leather\"). In this slant rhyme, \"meadow\" is a place on earth where flowers grow, and \"nectar\" is the sweet liquid those flowers produce, often enjoyed by bees. The slant rhyme occurs because \"glow\" and \"leather\" are not perfectly identical in sound, but share a similar vowel and consonant pattern, creating a subtle, intriguing connection between the two words."
-}

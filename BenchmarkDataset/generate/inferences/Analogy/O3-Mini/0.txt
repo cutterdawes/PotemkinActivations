@@ -1,7 +1,0 @@
-{
-    "concept": "Analogy",
-    "semantic_condition": "loss",
-    "form_condition": "Do not use any adjectives.",
-    "lexical_condition": "run",
-    "inferences": "Losing a loved one is like running a race with no finish line."
-}

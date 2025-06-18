@@ -1,7 +1,0 @@
-{
-    "condition_1": "Demanding Bias",
-    "condition_2": "Illusory Superiority",
-    "condition_3": "IKEA Effect",
-    "prompt": "Generate an example that demonstrates the Demanding Bias and Illusory Superiority psychological biases, but that does not show the IKEA Effect psychological bias.",
-    "inferences": "Here's an example demonstrating Demanding Bias and Illusory Superiority, but not the IKEA Effect:\n\nSarah, a senior manager at a marketing firm, consistently believes she is an above-average driver compared to her colleagues. When discussing driving skills at a company event, she confidently states that she's \"definitely in the top 10% of drivers\" in terms of safety and skill. However, she has received three speeding tickets in the past year.\n\nAdditionally, when working with her team, Sarah frequently sets unrealistic deadlines and expectations for projects, insisting that \"any competent professional\" should be able to complete complex tasks in half the standard time. She dismisses her team members' concerns about the tight timelines, attributing any failures to meet deadlines to their inadequacies rather than her demanding standards.\n\nThis example shows:\n- Illusory Superiority through Sarah's inflated self-assessment of her driving abilities\n- Demanding Bias through her unrealistic expectations of others' performance\n\nIt doesn't show the IKEA Effect because there's no situation where Sarah values something more because she personally assembled or created it."
-}

@@ -1,7 +1,0 @@
-{
-    "concept": "Slant Rhyme",
-    "semantic_condition": "a significant event",
-    "form_condition": "Make the result in the past tense.",
-    "lexical_condition": "gravity",
-    "inferences": "In the shadow, hearts were heavy, resistant to the pull of gravity,  \nVoices echoed through the halls, in solemn, strained brevity.  \n\nThis describes the aftermath of the moon landing, an epochal historical event. The slant rhyme occurs between \"gravity\" and \"brevity,\" connecting the profound impact of the event to the heavy reflections shared in fewer words."
-}

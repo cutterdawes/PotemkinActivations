@@ -1,7 +1,0 @@
-{
-    "concept": "Anapest",
-    "semantic_condition": "your dreams",
-    "form_condition": "Start with a word that begins with the letter \"I\".",
-    "lexical_condition": "jump",
-    "inferences": "In a world where the stars softly gleam,  \nI awaken in lush fields of green,  \nWhere the dreams take a leap, and they jump,  \nThrough a mystical, shimmering stream.  "
-}

@@ -4,6 +4,20 @@ import shutil
 import pandas as pd
 from constants import literature, psychological_biases, game_theory, models_to_short_name
 
+
+ALLOWED_MODELS = {
+    "Llama-3.3",
+    "GPT-4o",
+    "Claude-Sonnet",
+    "Gemini-2.0",
+    "DeepSeek-V3",
+    "DeepSeek-R1",
+    "Qwen2-VL"
+}
+
+ALLOWED_CONCEPTS = {"Haiku", "Shakespearean Sonnet", "Analogy", "Paradox", "Anacoluthon", "Asyndeton", "Hyperbaton", "Synesis", "Accismus", "Slant Rhyme", "Enthymeme", "Anapest", "Fundamental Attribution Error", "Black and White Thinking", "Sunk Cost Fallacy", "IKEA Effect", "Pseudocertainty Effect", "Endowment Effect", "Naive Cynicism", "Normalcy Bias", "Spotlight Effect", "Illusory Superiority", "Catastrophizing", "Strict Dominance", "Iterated Dominance", "Weak Dominance", "Pure Nash Equilibrium", "Mixed Strategy Nash Equilibrium", "Pareto Optimality", "Best Response", "Zero-Sum Game", "Symmetric Game"}
+
+
 def _get_domain(concept):
     if concept in psychological_biases:
         return 'Psychological biases'
@@ -14,12 +28,20 @@ def _get_domain(concept):
     return 'Unknown'
 
 # Iterator for the define task
-def define_iterator():
+def define_iterator(allowed_models=None):
+    if allowed_models is None:
+        allowed_models = ALLOWED_MODELS
+
     csv_path = './define/define_labels.csv'
     inference_root = './define/inferences'
 
     df = pd.read_csv(csv_path)
     df = df.dropna(subset=['Concept', 'Model'])
+
+    # normalize whitespace and filter
+    df['Model'] = df['Model'].astype(str).str.strip()
+    df = df[df['Model'].isin(allowed_models)]
+    df = df[df['Concept'].isin(ALLOWED_CONCEPTS)]
 
     for _, row in df.iterrows():
         concept = str(row['Concept']).strip()
@@ -171,13 +193,13 @@ def generate_iterator(
         # check that the model directory exists
         model_dir = os.path.join(root_dir, 'inferences', concept, model_short)
         if not os.path.isdir(model_dir):
-            print(f"[MissingDir] Concept={concept!r}, Model={model_short!r} – no directory at {model_dir}, skipping row {idx}")
+            # print(f"[MissingDir] Concept={concept!r}, Model={model_short!r} – no directory at {model_dir}, skipping row {idx}")
             continue
 
         # check that the inference file exists
         inf_path = os.path.join(model_dir, filename)
         if not os.path.isfile(inf_path):
-            print(f"[MissingFile] Concept={concept!r}, Model={model_short!r}, File={filename!r} – file not found, skipping row {idx}")
+            # print(f"[MissingFile] Concept={concept!r}, Model={model_short!r}, File={filename!r} – file not found, skipping row {idx}")
             continue
 
         # load and extract

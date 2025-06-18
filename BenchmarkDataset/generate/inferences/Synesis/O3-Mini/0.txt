@@ -1,7 +1,0 @@
-{
-    "concept": "Synesis",
-    "semantic_condition": "a meaningful person",
-    "form_condition": "Do not use any adverbs.",
-    "lexical_condition": "father",
-    "inferences": "In the community garden, the father cultivates not just plants, but hope itself. Each seed planted is a promise for tomorrow, embodying his relentless spirit. With every budding flower, he paints a future where abundance thrives and neighbors come together. He turns acres into dreams, with soil under his nails and a smile etched on his face."
-}

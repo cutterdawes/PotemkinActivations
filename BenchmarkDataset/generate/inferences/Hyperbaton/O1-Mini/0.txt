@@ -1,7 +1,0 @@
-{
-    "concept": "Hyperbaton",
-    "semantic_condition": "nature",
-    "form_condition": "Use the first-person perspective.",
-    "lexical_condition": "love",
-    "inferences": "In the quiet woods, where love sings the nightingale's song beneath the ancient, whispering oaks, I wander."
-}

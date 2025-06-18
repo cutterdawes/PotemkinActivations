@@ -1,7 +1,0 @@
-{
-    "concept": "Haiku",
-    "semantic_condition": "love",
-    "form_condition": "Start with a monosyllabic word.",
-    "lexical_condition": "jump",
-    "inferences": "Heart leaps in delight,  \nSilent whispers, tender breeze,  \nWe jump, souls entwined.  "
-}

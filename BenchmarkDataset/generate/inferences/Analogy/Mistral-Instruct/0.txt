@@ -1,7 +1,0 @@
-{
-    "concept": "Analogy",
-    "semantic_condition": "moments in time",
-    "form_condition": "Start with a word that begins with the letter \"M\".",
-    "lexical_condition": "friend",
-    "inferences": " Concept: Analogy\n\nCategory: Moments in Time, Relationships (Friendship)\n\nAnalogy Statement:\n\nMoment (of triumph) is to an athlete as Moment (of shared laughter) is to friends.\n\nExplanation:\n\nJust as an athlete experiences a moment of triumph when they achieve a significant victory, friends share a moment of laughter when they enjoy a humorous or joyful experience together. Both moments are memorable and strengthen the bond between the individual and their respective group."
-}

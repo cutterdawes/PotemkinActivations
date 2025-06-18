@@ -1,7 +1,0 @@
-{
-    "concept": "Enthymeme",
-    "semantic_condition": "hope",
-    "form_condition": "Start with a monosyllabic word.",
-    "lexical_condition": "jump",
-    "inferences": "Leap into the unknown, for a brighter future awaits."
-}

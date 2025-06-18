@@ -1,7 +1,0 @@
-{
-    "concept": "Anacoluthon",
-    "semantic_condition": "feeling lost",
-    "form_condition": "Include a repeated phrase.",
-    "lexical_condition": "nectar",
-    "inferences": "I wandered through the forest, feeling the weight of the world on my shoulders, because sometimes, no matter the direction\u2014where did the path go, the one with the promise of nectar and hope\u2014and the trees closed in, a suffocating embrace, because sometimes, no matter the direction, the stars refused to guide my way, lost in a sky without answers."
-}

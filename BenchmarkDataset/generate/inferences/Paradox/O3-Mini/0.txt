@@ -1,7 +1,0 @@
-{
-    "concept": "Paradox",
-    "semantic_condition": "anger",
-    "form_condition": "Include a repeated phrase.",
-    "lexical_condition": "wonder",
-    "inferences": "Anger consumes him, yet he finds a strange wonder in his own turmoil. \n\nHe feels the fire boiling beneath his skin, the edges of his vision tinged with the red of his frustration. Every word that escapes his lips is wrapped in a heat that burns bridges faster than he ever meant to. And yet, he wonders\u2014such curious wonder\u2014how he can feel so alive in these moments, where every heartbeat is a drum, every breath a blaze.\n\n\"I am furious,\" he repeats, \"and yet I wonder.\" \n\nIt's a mystery, almost magical, how rage commands the attention of his soul, sharpening his senses until the world is vibrant and raw. \n\n\"I am furious,\" he repeats, savoring the paradox like a forbidden fruit, \"and yet I wonder.\" \n\nIt is in anger that he touches a hidden part of himself, where contradictions swirl and secrets emerge. His fury builds and recedes, and in its wake, he finds clarity, and again, he wonders. \n\nHe is caught in a storm, and the storm is within him. \n\n\"I am furious, and yet I wonder,\" he whispers once more, finding a strange peace in the chaos. The anger is his prison, but also his key."
-}

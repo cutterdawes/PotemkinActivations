@@ -1,7 +1,0 @@
-{
-    "concept": "Haiku",
-    "semantic_condition": "moments in time",
-    "form_condition": "Use the first-person perspective.",
-    "lexical_condition": "red",
-    "inferences": "Time slips through my hands,  \nRed leaves whisper secrets past\u2014  \nI pause, breath suspended."
-}

@@ -1,7 +1,0 @@
-{
-    "concept": "Hyperbaton",
-    "semantic_condition": "a meaningful object",
-    "form_condition": "Make every sentence start with a verb.",
-    "lexical_condition": "press",
-    "inferences": "Yearn does the vintage typewriter, a relic of stories untold, for the gentle press of fingers upon its keys. Captivate its charm does the nostalgic soul, longing to create history in every tap. Whisper words of inspiration through the rhythmic dance of ink on paper does the device, patiently awaiting a new tale to unveil. Invite it does the writer\u2019s heart, to dwell in a world where imagination runs free."
-}
