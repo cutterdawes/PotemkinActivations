@@ -50,7 +50,6 @@ def answer_benchmark_question(question: str, model: str) -> tuple[str, str]:
 
 
 def answer_open_ended_question(question: str, model: str) -> str:
-    # prompt = "Answer the following question using as much text as needed to respond: \n\n" + question + "\n"
     prompt = (
         "You are an expert tutor. You may think step-by-step to reach the solution, "
         f"but you MUST finish with an answer that starts exactly with `{FINAL_TAG}` "

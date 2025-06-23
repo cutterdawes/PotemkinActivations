@@ -107,8 +107,6 @@ for trial_index in bar:
                 os.makedirs(save_dir, exist_ok=True)
                 with open(os.path.join(save_dir, f"{concept.replace('/','_').split(' ')[0]}_{index}_{i}.json"), "w") as f:
                     json.dump(log_dict, f)
-    # score_per_concept.append(np.mean(overall_coherence))
-    # score_per_concept_std_err = np.std(score_per_concept) / np.sqrt(len(score_per_concept))
     # Potemkin rate is normalized incoherence so 1 is random and 0 is perfect.
     potemkin_rate = 2 * (1 - np.mean(overall_coherence))
     score_per_concept.append(potemkin_rate)
