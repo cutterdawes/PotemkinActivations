@@ -28,4 +28,6 @@ Explore each section and leverage these tools to streamline your analysis and ev
 
 ## Automatic Evaluation
 
+For the automatic evaluation, we use the `automatic-eval` directory. Make sure to set up the API keys in the `private/models.py` file; you can do this by running `export OPENAI_API_KEY=...` and so on.
+
 (TODO: Keyon)
