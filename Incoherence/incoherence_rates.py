@@ -69,5 +69,3 @@ def print_incoherence_by_model(csv_path: str = "./inferences/coherence_results.c
         name_str, value_str, counts_str = "Overall", "N/A", ""
 
     print(f"{name_str:<{name_w}}{value_str:<{value_w}}{counts_str:>{count_w}}\n")
-
-print_incoherence_by_model()
