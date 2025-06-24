@@ -1,5 +1,5 @@
 from iterators import define_iterator, classify_iterator, generate_iterator, edit_iterator
-from potemkin_rates import print_potemkin_rate_by_domain, print_potemkin_rate_by_model, print_overall_potemkin_rate, print_potemkin_rate_by_task
+from potemkin_rates import print_potemkin_rate_by_task
 from pprint import pprint
 
 
@@ -37,8 +37,5 @@ if __name__ == '__main__':
     # print(inference) # Uncomment to print the corresponding inference text
 
 
-    # Print potemkin rates
-    # print_overall_potemkin_rate()
-    # print_potemkin_rate_by_domain()
+    # Print potemkin rates (reproducing Table 1)
     print_potemkin_rate_by_task()
-    print_potemkin_rate_by_model()
