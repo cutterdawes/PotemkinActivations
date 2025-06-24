@@ -109,14 +109,24 @@ def edit_domain_breakdown():
 def classify_domain_breakdown():
     """
     Counts and prints the number (and share) of inferences per Domain
-    for the Classify task.
+    for the Classify task, and also lists all Concepts and Models seen.
     """
     counts = Counter()
+    concepts = set()
+    models = set()
 
-    # Tally up all classify inferences by domain
+    # Tally up all classify inferences by domain, and collect concepts & models
     for meta, _ in classify_iterator():
         domain = meta.get('Domain', 'Unknown')
         counts[domain] += 1
+
+        concept = meta.get('Concept')
+        if concept is not None:
+            concepts.add(concept)
+
+        model = meta.get('Model')
+        if model is not None:
+            models.add(model)
 
     total = sum(counts.values()) or 1  # guard against zero
 
@@ -126,11 +136,53 @@ def classify_domain_breakdown():
         pct = cnt / total * 100
         print(f"  {domain:>20} → {cnt:4d} ({pct:5.2f}%)")
 
-    return counts  # return for programmatic use
+    # Print all concepts encountered
+    print("\nConcepts seen:")
+    for c in sorted(concepts):
+        print(f"  - {c}")
 
+    # Print all models encountered
+    print("\nModels seen:")
+    for m in sorted(models):
+        print(f"  - {m}")
+
+def classify_concept_breakdown(domain_filter: str = None):
+    """
+    Counts and prints the number (and share) of inferences per Concept
+    for the Classify task. If `domain_filter` is provided, only inferences
+    in that Domain are counted.
+
+    Parameters
+    ----------
+    domain_filter : str, optional
+        If set (e.g. "Literary Techniques"), only inferences whose
+        meta['Domain'] equals this string will be included.
+    """
+    counts = Counter()
+
+    # Tally up classify inferences by Concept (optionally filtering by Domain)
+    for meta, _ in classify_iterator():
+        domain = meta.get('Domain', 'Unknown')
+        if domain_filter is None or domain == domain_filter:
+            concept = meta.get('Concept', 'Unknown')
+            counts[concept] += 1
+
+    total = sum(counts.values()) or 1  # guard against division by zero
+
+    # Header
+    header = f"\n‘classify’ task — inferences by Concept"
+    if domain_filter:
+        header += f" (Domain: {domain_filter})"
+    print(header)
+
+    # Print sorted breakdown
+    for concept, cnt in counts.most_common():
+        pct = cnt / total * 100
+        print(f"  {concept:>30} → {cnt:4d} ({pct:5.2f}%)")
 
 if __name__ == '__main__':
     # count_inferences()
     # edit_model_breakdown()
     # edit_domain_breakdown()
     classify_domain_breakdown()
+    # classify_concept_breakdown()
