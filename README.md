@@ -46,10 +46,9 @@ Get up and running in a few simple steps:
     cd BenchmarkDataset && python -c "from potemkin_rates import print_potemkin_rate_by_task; print_potemkin_rate_by_task()"
    ```
 
-2. **View sample model responses**
+2. **View labeled instances**
 
-    Download `classify/literature_and_game_theory_with_cot.csv` or `classify/psych_classify_with_cot.csv` for quick access to the main CSV files containing questions and labeled model responses for the classification task.
-
+    The file `BenchmarkDataset/classify_labels.csv` contains labeled instances and non-instances of each concept, across all three domains. These labeled instances are used in subtasks of the benchmark dataset analysis.
 
 ## Benchmark Dataset
 
