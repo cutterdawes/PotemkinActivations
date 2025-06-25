@@ -70,7 +70,7 @@ cd BenchmarkDataset && python -c "from potemkin_rates import print_potemkin_rate
 
 ### Accessing the Data
 
-* We provide an iterator for each task. The iterator provides access to labeled model responses in a standardized format.
+* We provide an iterator to access labeled model responses for each task in a standardized format.
 * A sample API for using the iterators is provided in `BenchmarkDataset/main.py`. 
 * The source code for the iterators themselves can be accessed in `BenchmarkDataset/iterators.py`.
 * Helper functions to compute potemkin rates can be found in `potemkin_rates.py`.
