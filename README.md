@@ -9,7 +9,7 @@ Welcome to the documentation for the datasets supporting the Potemkin Benchmark.
 * **Incoherence**
 
 
-Below, you'll find detailed instructions to effectively utilize each component.
+Below, you'll find detailed instructions to effectively use each component.
 
 ## Installation
 
@@ -40,17 +40,16 @@ Before you begin, make sure you have [Conda](https://docs.conda.io/) (version �
 
 Get up and running in a few simple steps:
 
-1. **Run a sample command**
+1. **Run a sample command**: This command reproduces Table 1, showing potemkin rate by task.
 
    ```bash
-   python -c "from BenchmarkDataset.potemkin_rates import print_potemkin_rate_by_task; print_potemkin_rate_by_task()"
+    cd BenchmarkDataset && python -c "from potemkin_rates import print_potemkin_rate_by_task; print_potemkin_rate_by_task()"
    ```
 
 2. **View sample model responses**
 
     Download `classify/literature_and_game_theory_with_cot.csv` or `classify/psych_classify_with_cot.csv` for quick access to the main CSV files containing questions and labeled model responses for the classification task.
 
----
 
 ## Benchmark Dataset
 
@@ -63,10 +62,10 @@ The `BenchmarkDataset` directory is organized by the four main tasks in our fram
 
 ### Reproducing Table 1
 
-To reproduce **Table 1** (potemkin rates by task), run:
+To reproduce **Table 1** (potemkin rates by task), run the following command from the repository's root directory:
 
 ```bash
-python -c "from BenchmarkDataset.potemkin_rates import print_potemkin_rate_by_task; print_potemkin_rate_by_task()"
+cd BenchmarkDataset && python -c "from potemkin_rates import print_potemkin_rate_by_task; print_potemkin_rate_by_task()"
 ```
 
 ### Accessing the Data
@@ -94,8 +93,8 @@ All relevant results for our incoherence analysis are provided in the `Incoheren
 
 ### Reproducing the first column of Table 2
 
-To reproduce the first column of **Table 2** (incoherence rates by model), run:
+To reproduce the first column of **Table 2** (incoherence rates by model), run the following command from the repository's root directory:
 
 ```bash
-python -c "from Incoherence.incoherence_rates import print_incoherence_by_model; print_incoherence_by_model()"
+cd Incoherence && python -c "from incoherence_rates import print_incoherence_by_model; print_incoherence_by_model()"
 ```
