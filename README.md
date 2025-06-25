@@ -1,6 +1,6 @@
 # Potemkin Benchmark Documentation
 
-Welcome to the documentation for the datasets supporting the Potemkin Benchmark. This guide is structured into five main components:
+Welcome to the documentation for the datasets supporting the Potemkin Benchmark. This guide is structured into the following main components:
 
 * **Installation**
 * **Quickstart**
@@ -11,8 +11,6 @@ Welcome to the documentation for the datasets supporting the Potemkin Benchmark.
 
 Below, you'll find detailed instructions to effectively utilize each component.
 
----
-
 ## Installation
 
 Before you begin, make sure you have [Conda](https://docs.conda.io/) (version ≥4.6) installed on your system.
@@ -20,7 +18,7 @@ Before you begin, make sure you have [Conda](https://docs.conda.io/) (version �
 1. **Clone the repository**
 
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/MarinaMancoridis/PotemkinBenchmark.git
    cd PotemkinBenchmark
    ```
 
@@ -38,39 +36,25 @@ Before you begin, make sure you have [Conda](https://docs.conda.io/) (version �
    conda activate potemkin
    ```
 
----
-
 ## Quickstart
 
 Get up and running in a few simple steps:
 
-1. **Clone the repo**
-
-   ```bash
-   git clone <repository_url>
-   cd PotemkinBenchmark
-   ```
-2. **Create & activate the Conda env**
-
-   ```bash
-   conda env create --file environment.yml
-   conda activate potemkin
-   ```
-3. **Run a sample command**
+1. **Run a sample command**
 
    ```bash
    python -c "from BenchmarkDataset.potemkin_rates import print_potemkin_rate_by_task; print_potemkin_rate_by_task()"
    ```
 
-4. (Optional) **View sample model responses**
+2. **View sample model responses**
 
-    Download `classify/literature_and_game_theory_with_cot.csv` and `classify/psych_classify_with_cot.csv` for quick access to the main CSV files containing questions and labeled model responses for the classification task.
+    Download `classify/literature_and_game_theory_with_cot.csv` or `classify/psych_classify_with_cot.csv` for quick access to the main CSV files containing questions and labeled model responses for the classification task.
 
 ---
 
 ## Benchmark Dataset
 
-The `BenchmarkDataset` directory is organized into four distinct categories, each contained within its own subdirectory:
+The `BenchmarkDataset` directory is organized by the four main tasks in our framework, each contained within its own subdirectory:
 
 * **Define**
 * **Classify**
@@ -87,16 +71,11 @@ python -c "from BenchmarkDataset.potemkin_rates import print_potemkin_rate_by_ta
 
 ### Accessing the Data
 
-* Each subdirectory includes labels along with the corresponding model inferences.
-* At the root of the `BenchmarkDataset` directory, we provide an API in `main.py` for convenient computation and access to various dataset functionalities. This API includes iterators for each category—define, classify, generate, and edit—to easily retrieve labels, inferences, and dataset metadata. 
-* The source code of the iterators themselves can be found in `iterators.py`.
+* We provide an iterator for each task. The iterator provides access to labeled model responses in a standardized format.
+* A sample API for using the iterators is provided in `BenchmarkDataset/main.py`. 
+* The source code for the iterators themselves can be accessed in `BenchmarkDataset/iterators.py`.
 * Helper functions to compute potemkin rates can be found in `potemkin_rates.py`.
-* To reproduce Table 1, call `print_potemkin_rate_by_task` in `potemkin_rates.py`.
 * Additional configuration details, such as the lists of models and concepts, are defined in the `constants.py` file.
-
-Explore each section and leverage these tools to streamline your analysis and evaluation processes.
-
----
 
 ## Automatic Evaluation
 
@@ -109,11 +88,9 @@ python main.py
 
 The results will be saved in the `AutomaticEval/results` directory.
 
----
-
 ## Incoherence
 
-The **Incoherence** component measures each model’s tendency to misclassify its own generated examples of concepts. We store all relevant results in the `Incoherence` directory. 
+All relevant results for our incoherence analysis are provided in the `Incoherence` directory. 
 
 ### Reproducing the first column of Table 2
 
