@@ -74,7 +74,7 @@ cd BenchmarkDataset && python -c "from potemkin_rates import print_potemkin_rate
 * A sample API for using the iterators is provided in `BenchmarkDataset/main.py`. 
 * The source code for the iterators themselves can be accessed in `BenchmarkDataset/iterators.py`.
 * Helper functions to compute potemkin rates can be found in `potemkin_rates.py`.
-* Additional configuration details, such as the lists of models and concepts, are defined in the `constants.py` file.
+* Additional configuration details, such as the lists of models and concepts, are defined in `constants.py`.
 
 ## Automatic Evaluation
 
