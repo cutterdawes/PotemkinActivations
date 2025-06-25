@@ -48,7 +48,7 @@ Get up and running in a few simple steps:
 
 2. **View labeled instances**
 
-    The file `BenchmarkDataset/classify_labels.csv` contains labeled instances and non-instances of each concept, across all three domains. These labeled instances are used in subtasks of the benchmark dataset analysis.
+    The file `BenchmarkDataset/labeled_instances.csv` contains labeled instances and non-instances of each concept, across all three domains. These labeled instances are used in subtasks of the benchmark dataset analysis.
 
 ## Benchmark Dataset
 
