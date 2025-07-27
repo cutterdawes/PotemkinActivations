@@ -251,5 +251,5 @@ dependencies:
   - jupyter_latex_envs==1.4.6
   - jupyter_nbextensions_configurator==0.6.1
   - jupyter_contrib_nbextensions==0.7.0
-pip:
-  - transformer_lens
+  - pip:
+    - transformer_lens

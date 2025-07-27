@@ -1,0 +1,8 @@
+# macOS specific files
+.DS_Store
+
+# Python cache
+__pycache__
+
+# Generated results from Activations script
+Activations/results/
